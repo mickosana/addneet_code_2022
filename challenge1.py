@@ -18,10 +18,10 @@ def calculate_largest(inp, elem_to_sum):
         else:
             current_sum = current_sum + int(value)
    
-    return sorted(sums)[elem_to_sum:]
+    return sum(sorted(sums)[elem_to_sum:])
 
 
     
 if __name__ == '__main__':
-    print(sum(calculate_largest(inputs,-3)))
+    print(calculate_largest(inputs,-3))
 
