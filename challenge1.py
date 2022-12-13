@@ -4,25 +4,24 @@
 
 inputs = open('input.txt').readlines()
 
+lists = [ el for idx,el in enumerate(inputs) if el!='\r\n' ]
 
 
-def calculate_largest(inp):
-    largest_sum = 0
+def calculate_largest(inp, elem_to_sum):
+    sums = []
     current_sum = 0
-    for idx, value in enumerate(inputs):
+    for value in inp:
 
-        print(f"overrall largest {largest_sum}")
-        print(f"current largest {current_sum}")
         if value == '\n':
-            print("reseting")
-            if  current_sum > largest_sum:
-                largest_sum = current_sum
+            sums.append(current_sum)
             current_sum = 0
         else:
-            print(f"this is not an blank")
             current_sum = current_sum + int(value)
+   
+    return sorted(sums)[elem_to_sum:]
 
-    return largest_sum
+
     
-print(calculate_largest(inputs))
+if __name__ == '__main__':
+    print(sum(calculate_largest(inputs,-3)))
 
